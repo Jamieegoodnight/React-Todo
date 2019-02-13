@@ -15,6 +15,24 @@ class App extends React.Component {
     };
   }
 
+  addTodo = event => {
+    event.preventDefault();
+    const newDos = {
+      task: this.state.task,
+      id: Date.now(),
+      completed: false
+    };
+    this.setState({
+      dos: [...this.state.dos, newDos],
+      task: ''
+    })
+  }
+
+ handleChanges = event => {
+   this.setState({
+     [event.target.name]: event.target.value
+   });
+ }
 
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -26,6 +44,9 @@ class App extends React.Component {
         <TodoList 
         dos={this.state.dos}/>
         <TodoForm 
+        value={this.state.dos}
+        handleChanges={this.handleChanges}
+        addTodo={this.addTodo}
         />
       </div>
     );
