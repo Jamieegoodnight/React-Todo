@@ -40,7 +40,9 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        <h2>Don't you have stuff TO DO?</h2>
+        <h3>Are you a freaky, obsessive organizer who needs to make lists and shit?</h3>
+        <h4>Well, BOY. Here you go:</h4>
         <TodoList 
         dos={this.state.dos}/>
         <TodoForm 
