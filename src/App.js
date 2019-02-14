@@ -2,6 +2,7 @@ import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
+
 class App extends React.Component {
   constructor(){
     super();
@@ -18,7 +19,7 @@ class App extends React.Component {
 
   toggleCompleted = itemId => {
     this.setState({
-      groceries: this.state.dos.map(item=> {
+      dos: this.state.dos.map(item => {
         if (itemId === item.id){
           return {...item, completed: !item.completed}
         }
@@ -40,6 +41,13 @@ class App extends React.Component {
     })
   }
 
+  clearCompleted = e => {
+    this.setState({
+      dos: this.state.dos.filter(item => !item.completed)
+    });
+  }
+
+
  handleChanges = event => {
    this.setState({
      [event.target.name]: event.target.value
@@ -51,16 +59,19 @@ class App extends React.Component {
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
     return (
-      <div>
+      <div className="todo-app">
         <h2>Don't you have stuff TO DO?</h2>
         <h3>Are you a freaky, obsessive organizer who needs to make lists and shit?</h3>
         <h4>Well, BOY. Here you go:</h4>
         <TodoList 
-        dos={this.state.dos}/>
+        dos={this.state.dos}
+        toggleCompleted={this.toggleCompleted}
+        />
         <TodoForm 
         task={this.state.task}
         handleChanges={this.handleChanges}
         addTodo={this.addTodo}
+        clearCompleted={this.clearCompleted}
         />
       </div>
     );

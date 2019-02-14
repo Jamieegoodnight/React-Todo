@@ -1,3 +1,33 @@
-.completed {
+.complete {
     text-decoration-line: line-through;
+}
+
+.todo-app {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    background: lightgray;
+    border: 5px solid black;
+    padding: 50px;
+}
+
+p {
+  color: #71aab3;
+  background: white;
+}
+
+button {
+    color: #71aab3;
+}
+
+h2 {
+    color: #71aab3;
+}
+
+h3 {
+    color: #71aab3;
+}
+
+h4 {
+    color: #71aab3;
 }
