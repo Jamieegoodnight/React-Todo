@@ -15,6 +15,18 @@ class App extends React.Component {
     };
   }
 
+
+  toggleCompleted = itemId => {
+    this.setState({
+      groceries: this.state.dos.map(item=> {
+        if (itemId === item.id){
+          return {...item, completed: !item.completed}
+        }
+        return item;
+      })
+    })
+ }
+
   addTodo = event => {
     event.preventDefault();
     const newDos = {
@@ -24,7 +36,7 @@ class App extends React.Component {
     };
     this.setState({
       dos: [...this.state.dos, newDos],
-      task: ''
+      task:"",
     })
   }
 
@@ -46,7 +58,7 @@ class App extends React.Component {
         <TodoList 
         dos={this.state.dos}/>
         <TodoForm 
-        value={this.state.dos}
+        task={this.state.task}
         handleChanges={this.handleChanges}
         addTodo={this.addTodo}
         />
